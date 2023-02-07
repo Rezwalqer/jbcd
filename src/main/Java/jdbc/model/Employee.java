@@ -19,6 +19,7 @@ public class Employee {
         this.gender = gender;
         this.age = age;
         this.city = city;
+
     }
 
     public Employee(int id, String firstName, String lastName, String gender, int age, City city) {
