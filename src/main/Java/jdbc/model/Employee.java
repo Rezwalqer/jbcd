@@ -1,13 +1,25 @@
 package jdbc.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "employee")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "age")
     private int age;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
     private City city;
 
     public Employee() {
@@ -19,6 +31,7 @@ public class Employee {
         this.gender = gender;
         this.age = age;
         this.city = city;
+
     }
 
     public Employee(int id, String firstName, String lastName, String gender, int age, City city) {

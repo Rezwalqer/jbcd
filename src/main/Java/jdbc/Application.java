@@ -1,5 +1,7 @@
 package jdbc;
 
+import jdbc.dao.CityDAO;
+import jdbc.dao.CityDAOImpl;
 import jdbc.dao.EmployeeDAO;
 import jdbc.dao.EmployeeDAOImpl;
 import jdbc.model.City;
@@ -12,35 +14,18 @@ public class Application {
         final String user = "postgres";
         final String pass = "153847320";
         final String url = "jdbc:postgresql://localhost:5432/skypro";
-//        try (final Connection connection = DriverManager.getConnection(url, user, pass);
-//             PreparedStatement statement = connection.prepareStatement(
-//                     "SELECT * FROM employee WHERE id = (?)"
-//             )) {
-//            statement.setInt(1, 5);
-//
-//            final ResultSet resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                String firstName = "First name: " + resultSet.getString("first_name");
-//                String lastName = "Last name: " + resultSet.getString("last_name");
-//                String gender = "gender: " + resultSet.getString("gender");
-//                String age = "Age: " + resultSet.getInt(5);
-//                System.out.println(firstName);
-//                System.out.println(lastName);
-//                System.out.println(age);
-//                System.out.println(gender);
-//            }
-//
-//        }
-        try (final Connection connection = DriverManager.getConnection(url, user, pass)) {
-            EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
-            City city1 = new City(4, "Омск-Омск");
-            Employee employee1 = new Employee("Иванов", "Сергей", "male", 1, city1);
-//            employeeDAO.create(employee1);
-//            System.out.println(employeeDAO.getById(6));
-//            System.out.println(employeeDAO.getAllEmployees());
-//            employeeDAO.updateAgeById(8, 2);
-//            employeeDAO.deleteById(8);
-        }
 
+
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        CityDAO cityDAO = new CityDAOImpl();
+
+        City city = new City("Санкт-Петербург");
+//        cityDAO.create(city);
+//        Employee employee = new Employee("Светлана", "Суркова", "female", 23, city);
+        City city1 = cityDAO.getById(6);
+//        employee.setCity(city1);
+//        employeeDAO.create(employee);
+        cityDAO.delete(city1);
     }
 }
+
