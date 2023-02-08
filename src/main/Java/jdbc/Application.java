@@ -30,6 +30,8 @@ public class Application {
 //                System.out.println(gender);
 //            }
 //
+
+
 //        }
 //        try (final Connection connection = DriverManager.getConnection(url, user, pass)) {
 //            City city1 = new City(4, "Омск-Омск");
