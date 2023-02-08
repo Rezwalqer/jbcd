@@ -30,17 +30,26 @@ public class Application {
 //                System.out.println(gender);
 //            }
 //
+
+
 //        }
-        try (final Connection connection = DriverManager.getConnection(url, user, pass)) {
-            EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
-            City city1 = new City(4, "Омск-Омск");
-            Employee employee1 = new Employee("Иванов", "Сергей", "male", 1, city1);
+//        try (final Connection connection = DriverManager.getConnection(url, user, pass)) {
+//            City city1 = new City(4, "Омск-Омск");
+//            Employee employee1 = new Employee("Иванов", "Сергей", "male", 1, city1);
 //            employeeDAO.create(employee1);
 //            System.out.println(employeeDAO.getById(6));
 //            System.out.println(employeeDAO.getAllEmployees());
 //            employeeDAO.updateAgeById(8, 2);
 //            employeeDAO.deleteById(8);
-        }
+
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        Employee employee = new Employee(10,"Иван", "Иванов", "male", 41, 1);
+//        employeeDAO.create(employee);
+//        System.out.println(employeeDAO.getById(10));
+//        System.out.println(employeeDAO.getAllEmployees());
+//        employeeDAO.updateById(new Employee(6, "Иван", "Иванов", "male", 42, 1));
+        employeeDAO.deleteById(employee);
 
     }
 }
+
